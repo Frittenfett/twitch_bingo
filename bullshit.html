@@ -1,0 +1,35 @@
+<html>
+	<head>
+<style>
+	body {background-color: #00ff00;}
+	#content { width: 500px; height: 500px;}
+        .element { width: 100px; height: 30px; background-color: #FFF; border: 1px #000 solid; margin: 5px; float: left; display: flex; align-items: center; justify-content: center;}
+	.active  { background-color: #FF0; }
+        .button { cursor: pointer; }
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	var bullshitBingo = ["Dev Door", "Pick Pipe/Door", "3x Bowser", "Instant Death", "Nude Pipe", "Enemy Spam", "First Try", "Sound Spam", "Death Door", "Kaizo" ,"Bossfight", "Speedrun", "Soft Lock", "Timeout", "Troll" ,"Bad Design", "Dev Star", "Dev Powerup", "Japano Level", "Skip Level", "First Clear", "WR", "Gutes Level", "1€/100Bits", "1 Sub", "Yattanai", "Skill", "Cheesed", "Blind Jump"];
+	var limit = 16;
+
+        bullshitBingo.sort(function(a, b){return 0.5 - Math.random()});
+	$.each(bullshitBingo, function(index, value) {
+           if (index < limit) { 
+              var content = "<div id='item"+index+"' class='button element'>"+value+"</div>";
+              $('#content').html($('#content').html() + content );
+           }
+	});
+
+	$(".element").click(function(e) {
+    		e.preventDefault();
+    		$(this).toggleClass('active');
+	});
+});
+</script>
+	</head>
+
+	<body>
+		<div id="content"></div>
+	</body>
+</html>
